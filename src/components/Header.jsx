@@ -1,7 +1,13 @@
+import kieffenneIMG from '../assets/kieffenne_einderhawk.png';
 const Header = () => {
   return (
-    <header className='p-7 bg-blue-600 text-white'>
-      <h1 className='text-5xl font-bold'>Personal Finance Tracker</h1>
+    <header className='flex flex-col justify center items-center p-7 h-1/4 bg-blue-600 text-white'>
+      <img
+        src={kieffenneIMG}
+        alt='image of a man, smiling'
+        className='w-32 h-32 mb-2 block rounded-full'
+      />
+      <h1 className='text-lg font-bold'>Personal Finance Tracker</h1>
     </header>
   );
 };
