@@ -6,7 +6,12 @@ const Sidebar = () => {
       <nav>
         <ul className='space-y-10 h-56 flex flex-col text-2xl mt-10 rounded-md'>
           <li>
-            <Link className='text-blue-600 hover:underline' to='/'>
+            <Link className='text-blue-600 hover:underline' to='/home'>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className='text-blue-600 hover:underline' to='/dashboard'>
               Dashboard
             </Link>
           </li>
