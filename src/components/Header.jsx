@@ -7,7 +7,9 @@ const Header = () => {
         alt='image of a man, smiling'
         className='w-32 h-32 mb-2 block rounded-full'
       />
-      <h1 className='text-lg font-bold'>Personal Finance Tracker</h1>
+      <h1 id='account-name' className='text-lg font-bold'>
+        @kieffenne_einderhawk
+      </h1>
     </header>
   );
 };
