@@ -11,6 +11,14 @@ const ExpenseForm = ({
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('');
   const [notes, setNotes] = useState('');
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const savedCategories = localStorage.getItem('categories');
+    if (savedCategories) {
+      setCategories(JSON.parse(savedCategories));
+    }
+  }, []);
 
   useEffect(() => {
     if (expenseToEdit !== null) {
@@ -52,13 +60,19 @@ const ExpenseForm = ({
       </div>
       <div className='flex gap-3 w-2/5'>
         <label className='block w-full'>Category:</label>
-        <input
+        <select
           className='block w-full p-3 bg-gray-300 text-gray-800 rounded-sm'
-          type='text'
           value={category}
           onChange={e => setCategory(e.target.value)}
           required
-        />
+        >
+          <option value=''>Select a category</option>
+          {categories.map((category, index) => (
+            <option key={index} value={category.name}>
+              {category.name}
+            </option>
+          ))}
+        </select>
       </div>
       <div className='flex gap-3 w-2/5'>
         <label className='block w-full'>Date:</label>
