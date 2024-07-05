@@ -8,6 +8,14 @@ const Home = () => {
         This webapp is a work in progress. To continue, use the links on the
         sidebar.
       </p>
+      <hr className='my-6' />
+      <h3 className='text-2xl font-bold mb-4'>Updates</h3>
+      <ul className='list-disc list-inside'>
+        <li className='mb-2'>
+          <span className='font-bold'>July 5, 2024 --</span> Added the ability
+          to add and edit categories.
+        </li>
+      </ul>
     </div>
   );
 };

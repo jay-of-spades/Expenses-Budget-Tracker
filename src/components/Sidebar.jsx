@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 const Sidebar = () => {
   return (
     <aside className='w-80 h-3/4 p-4 bg-gray-100'>
-      <nav>
-        <ul className='space-y-10 h-3/4 flex flex-col text-2xl my-10'>
+      <nav className='bg-indigo-50 px-6 py-10 rounded-lg shadow'>
+        <ul className='space-y-10 h-3/4 flex flex-col text-2xl'>
           <li>
-            <Link className='text-blue-600 hover:underline' to='/'>
+            <Link className='text-blue-600 hover:underline' to='/home'>
               Home
             </Link>
           </li>
