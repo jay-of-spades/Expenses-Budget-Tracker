@@ -1,6 +1,6 @@
 // import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Routes,
   Navigate,
@@ -19,14 +19,13 @@ const App = () => {
     <Router>
       <Layout>
         <Routes>
-          <Route path='/' element={<Navigate to='/home' />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Navigate to={<Home />} />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/expenses' element={<Expenses />} />
           <Route path='/budget' element={<Budget />} />
           <Route path='/categories' element={<Categories />} />
           <Route path='/reports' element={<Reports />} />
-          <Route path='*' element={<Navigate to='/home' />} />
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </Layout>
     </Router>
