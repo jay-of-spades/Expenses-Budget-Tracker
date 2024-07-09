@@ -12,6 +12,16 @@ const Home = () => {
       <h3 className='text-2xl font-bold mb-4'>Updates</h3>
       <ul className='list-disc list-inside'>
         <li className='mb-2'>
+          <span className='font-bold'>July 9, 2024: Dashboard Changes </span>
+          <ul className='list-decimal list-inside'>
+            <li>Added target and current income graphs</li>
+            <li>Added Recent Transactions</li>
+            <li>Added Total Expenses</li>
+            <li>Added Remaining Budget</li>
+            <li>Added Budget vs Expenses Line Graph</li>
+          </ul>
+        </li>
+        <li className='mb-2'>
           <span className='font-bold'>July 6, 2024: </span>
           <ul className='list-decimal list-inside'>
             <li>Added Font Awesome Icons</li>
