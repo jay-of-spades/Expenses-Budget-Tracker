@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const BudgetList = ({ budgets, onEdit, onDelete }) => {
   return (
-    <div className='expense-list bg-pink-800 p-2 rounded-md text-white w-full'>
+    <div className='expense-list bg-green-800 p-2 rounded-md text-white w-full'>
       <h2 className='text-2xl font-semibold'>Registered Budgets</h2>
       {budgets.length === 0 ? (
         <p>No budget recorded.</p>
