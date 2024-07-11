@@ -14,7 +14,7 @@ import {
 const Sidebar = () => {
   const isLoggedIn = true;
   return (
-    <aside className='w-80 h-3/4 p-4 bg-gray-100'>
+    <aside className='w-80 h-4/5 p-4 bg-gray-100 fixedSidebar'>
       <nav className='bg-indigo-50 px-6 py-10 rounded-lg shadow'>
         <ul className='space-y-10 h-3/4 flex flex-col text-2xl'>
           <li>

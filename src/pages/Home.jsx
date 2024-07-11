@@ -1,9 +1,11 @@
+import image from '/PFTLogo.svg';
 const Home = () => {
   return (
     <div className='p-4'>
-      <h1 className='text-3xl font-bold mb-4'>
-        Welcome to Personal Finance Tracker
-      </h1>
+      <div className='flex gap-6 items-center mb-10'>
+        <img src={image} alt='Personal Finance Tracker' className='w-24' />
+        <h1 className='text-5xl font-bold mb-4'>Personal Finance Tracker</h1>
+      </div>
       <p className='text-lg'>
         This webapp is a work in progress. To continue, use the links on the
         sidebar.

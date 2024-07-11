@@ -9,9 +9,8 @@ import Dashboard from './pages/Dashboard';
 import Expenses from './pages/Expenses';
 import Budget from './pages/Budget';
 import Layout from './components/Layout';
-import Reports from './pages/Reports';
-import Categories from './pages/Categories';
 import Home from './pages/Home';
+import Settings from './pages/Settings';
 import './index.css';
 
 const App = () => {
@@ -24,8 +23,7 @@ const App = () => {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/expenses' element={<Expenses />} />
           <Route path='/budget' element={<Budget />} />
-          <Route path='/categories' element={<Categories />} />
-          <Route path='/reports' element={<Reports />} />
+          <Route path='/settings' element={<Settings />} />
           <Route path='*' element={<Navigate to='/home' />} />
         </Routes>
       </Layout>

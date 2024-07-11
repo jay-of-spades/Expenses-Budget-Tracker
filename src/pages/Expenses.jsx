@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Expenses = () => {
   const [expenses, setExpenses] = useState(() => {
@@ -13,6 +15,16 @@ const Expenses = () => {
     localStorage.setItem('expenses', JSON.stringify(expenses));
   }, [expenses]);
 
+  const [categories, setCategories] = useState(() => {
+    const savedCategories = localStorage.getItem('categories');
+    return savedCategories ? JSON.parse(savedCategories) : [];
+  });
+  useEffect(() => {
+    const savedCategories = localStorage.getItem('categories');
+    if (savedCategories) {
+      setCategories(JSON.parse(savedCategories));
+    }
+  }, []);
   const addExpense = newExpense => {
     setExpenses([...expenses, newExpense]);
   };
@@ -33,12 +45,16 @@ const Expenses = () => {
   };
   return (
     <div>
-      <h1 className='mb-7'>Expenses</h1>
+      <h1 className='text-blue-500 font-bold mb-10 flex'>
+        <FontAwesomeIcon icon={faShoppingCart} className='mr-2' />
+        Expenses
+      </h1>
       <ExpenseForm
         addExpense={addExpense}
         editExpense={editExpense}
         expenseToEdit={expenseToEdit}
         setExpenseToEdit={setExpenseToEdit}
+        categories={categories}
       />
       <ExpenseList
         expenses={expenses}

@@ -1,7 +1,7 @@
 import kieffenneIMG from '../assets/kieffenne_einderhawk.png';
 const Header = () => {
   return (
-    <header className='flex flex-col justify center items-center p-7 h-1/4 bg-blue-600 text-white'>
+    <header className='flex flex-col justify center items-center p-7 h-1/4 w-80 bg-blue-600 text-white fixedHeader'>
       <img
         src={kieffenneIMG}
         alt='image of a man, smiling'

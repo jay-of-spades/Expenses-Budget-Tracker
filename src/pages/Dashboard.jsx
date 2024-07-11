@@ -8,6 +8,10 @@ import {
   faEdit,
   faChartLine,
   faDollarSign,
+  faTachometerAlt,
+  faCommentsDollar,
+  faFileInvoiceDollar,
+  faMoneyBillWave,
 } from '@fortawesome/free-solid-svg-icons';
 
 const Dashboard = () => {
@@ -67,16 +71,6 @@ const Dashboard = () => {
     );
   };
 
-  // const calculateRemainingBudget = category => {
-  //   const budget = budgets.find(b => b.category === category);
-  //   if (!budget) return 0;
-  //   const expensesForCategory = expenses.filter(e => e.category === category);
-  //   const totalExpensesForCategory = expensesForCategory.reduce(
-  //     (total, expense) => total + parseFloat(expense.amount),
-  //     0
-  //   );
-  //   return budget.amount - totalExpensesForCategory;
-  // };
   const calculateRemainingBudget = () => {
     return calculateTotalBudget() - calculateTotalExpenses();
   };
@@ -129,143 +123,153 @@ const Dashboard = () => {
 
   return (
     <div className='p-4'>
-      <h1 className='text-3xl font-bold mb-12'>Dashboard</h1>
-      <div className='grid grid-cols gap-4'>
-        <div className='bg-white p-4 rounded shadow'>
-          <h2 className='text-2xl font-bold mb-2 flex items-center space-x-2  text-gray-700 my-5'>
-            <FontAwesomeIcon icon={faDollarSign} />
-            <span>Income</span>
-          </h2>
-          <div className='relative'>
-            {incomePercentage !== null ? (
-              <CircularProgressbar
-                value={incomePercentage}
-                text={`${incomePercentage.toFixed(2)}%`}
-                styles={buildStyles({
-                  pathColor: '#4caf50',
-                  trailColor: '#d6d6d6',
-                  textColor: '#4caf50',
-                  strokeWidth: 5,
-                })}
-              />
-            ) : (
-              <div className='text-gray-500 text-center flex justify-center items-center w-full h-24'>
-                <h2
-                  className='font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-md cursor-pointer bg-slate-100'
-                  onClick={() => setShowIncomePopup(true)}
-                >
-                  Please set both current and target income
-                </h2>
-              </div>
-            )}
-            <button
-              onClick={() => setShowIncomePopup(true)}
-              className='absolute top-0 right-0 p-2 bg-blue-600 text-white rounded'
-            >
-              <FontAwesomeIcon icon={faEdit} />
-            </button>
-          </div>
-        </div>
-        {/* Income Popup */}
-        {showIncomePopup && (
-          <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-5'>
-            <div className='bg-white p-4 rounded shadow'>
-              <h2 className='text-2xl font-bold mb-4 text-gray-600'>
-                Set Income
-              </h2>
-              <form onSubmit={handleIncomeSubmit}>
-                <div className='mb-4'>
-                  <label className='block mb-2 text-gray-600'>
-                    Target Income:
-                  </label>
-                  <input
-                    type='number'
-                    value={targetIncome}
-                    onChange={e => setTargetIncome(e.target.value)}
-                    className='w-full p-2 border rounded'
-                    required
-                  />
-                </div>
-                <div className='mb-4'>
-                  <label className='block mb-2  text-gray-600'>
-                    Current Income:
-                  </label>
-                  <input
-                    type='number'
-                    value={currentIncome}
-                    onChange={e => setCurrentIncome(e.target.value)}
-                    className='w-full p-2 border rounded'
-                    required
-                  />
-                </div>
-                <div className='flex justify-end space-x-2'>
-                  <button
-                    type='button'
-                    onClick={() => setShowIncomePopup(false)}
-                    className='p-2 bg-gray-600 text-white rounded'
+      <div>
+        <h1 className='text-blue-500 font-bold mb-12 flex'>
+          <FontAwesomeIcon icon={faTachometerAlt} className='mr-2' />
+          Dashboard
+        </h1>
+        <div className='grid grid-cols gap-8'>
+          <div className='neumorphicBox p-8 rounded shadow'>
+            <h2 className='text-2xl text-blue-400 font-bold mb-2 flex items-center space-x-2 my-5'>
+              <FontAwesomeIcon icon={faDollarSign} />
+              <span>Income</span>
+            </h2>
+            <div className='relative'>
+              {incomePercentage !== null ? (
+                <CircularProgressbar
+                  value={incomePercentage}
+                  text={`${incomePercentage.toFixed(2)}%`}
+                  styles={buildStyles({
+                    pathColor: '#4caf50',
+                    trailColor: '#d6d6d6',
+                    textColor: '#4caf50',
+                    strokeWidth: 5,
+                  })}
+                />
+              ) : (
+                <div className='text-gray-500 text-center flex justify-center items-center w-full h-24'>
+                  <h2
+                    className='font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-md cursor-pointer bg-slate-100'
+                    onClick={() => setShowIncomePopup(true)}
                   >
-                    Cancel
-                  </button>
-                  <button
-                    type='submit'
-                    className='p-2 bg-blue-600 text-white rounded'
-                  >
-                    Save
-                  </button>
+                    Please set both current and target income
+                  </h2>
                 </div>
-              </form>
+              )}
+              <button
+                onClick={() => setShowIncomePopup(true)}
+                className='absolute top-0 right-0 p-2 bg-blue-600 text-white rounded'
+              >
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
             </div>
           </div>
-        )}
-
-        {/* {Recent Transactions} */}
-        <div className='bg-white p-4 rounded shadow'>
-          <h2 className='text-2xl font-bold mb-2 text-gray-700 my-5'>
-            Recent Transactions
-          </h2>
-          {getRecentTransactions().length === 0 ? (
-            <p>No Transactions.</p>
-          ) : (
-            <ul>
-              {getRecentTransactions().map((expense, index) => (
-                <li
-                  key={index}
-                  className='p-2 border-b border-gray-300 text-gray-700 flex justify-between'
-                >
-                  <span>{expense.date}</span>
-                  <span>{expense.category}</span>
-                  <span>${expense.amount}</span>
-                  <span>{expense.notes}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Income Popup */}
+          {showIncomePopup && (
+            <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-5'>
+              <div className='neumorphicBox p-8 rounded shadow'>
+                <h2 className='text-2xl text-blue-400 font-bold mb-4'>
+                  Set Income
+                </h2>
+                <form onSubmit={handleIncomeSubmit}>
+                  <div className='mb-4'>
+                    <label className='block mb-2 text-gray-600'>
+                      Target Income:
+                    </label>
+                    <input
+                      type='number'
+                      value={targetIncome}
+                      onChange={e => setTargetIncome(e.target.value)}
+                      className='w-full p-2 border rounded'
+                      required
+                    />
+                  </div>
+                  <div className='mb-4'>
+                    <label className='block mb-2  text-gray-600'>
+                      Current Income:
+                    </label>
+                    <input
+                      type='number'
+                      value={currentIncome}
+                      onChange={e => setCurrentIncome(e.target.value)}
+                      className='w-full p-2 border rounded'
+                      required
+                    />
+                  </div>
+                  <div className='flex justify-end space-x-2'>
+                    <button
+                      type='button'
+                      onClick={() => setShowIncomePopup(false)}
+                      className='p-2 bg-gray-600 text-white rounded'
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type='submit'
+                      className='p-2 bg-blue-600 text-white rounded'
+                    >
+                      Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           )}
-        </div>
 
-        {/* {Total Expenses Box} */}
-        <div className='bg-white p-4 rounded shadow'>
-          <h2 className='text-2xl font-bold text-gray-700 my-5'>
-            Total Expenses of the Month
-          </h2>
-          <p className='text-lg text-gray-700'>${calculateTotalExpenses()}</p>
-        </div>
+          {/* {Recent Transactions} */}
+          <div className='neumorphicBox p-8 rounded shadow'>
+            <h2 className='text-2xl text-blue-400 font-bold mb- my-5 flex'>
+              <FontAwesomeIcon icon={faCommentsDollar} className='mr-2' />
+              Recent Transactions
+            </h2>
+            {getRecentTransactions().length === 0 ? (
+              <p>No Transactions.</p>
+            ) : (
+              <ul>
+                {getRecentTransactions().map((expense, index) => (
+                  <li
+                    key={index}
+                    className='p-2 border-b border-gray-400 pb-4 flex justify-between text-gray-700'
+                  >
+                    <span>{expense.date}</span>
+                    <span>{expense.category}</span>
+                    <span>${expense.amount}</span>
+                    <span>{expense.notes}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
-        {/* Remaining Budget Box */}
-        <div className='bg-white p-4 rounded shadow'>
-          <h2 className='text-2xl font-bold my-5 text-gray-700'>
-            Remaining Budget this Month
-          </h2>
-          <p className='text-lg text-gray-700'>
-            ${calculateRemainingBudget().toFixed(2)}
-          </p>
-        </div>
-        {/* Budget and Expenses Line Graph */}
-        <div className='col-span-2 bg-white p-4 rounded shadow'>
-          <h2 className='text-2xl font-bold mb-2 flex items-center space-x-2 text-gray-700 my-5'>
-            <FontAwesomeIcon icon={faChartLine} />
-            <span>Budget vs Expenses</span>
-          </h2>
-          <Line data={budgetData} />
+          {/* {Total Expenses Box} */}
+          <div className='neumorphicBox p-8 rounded shadow'>
+            <h2 className='text-2xl text-blue-400 font-bold my-5 flex'>
+              <FontAwesomeIcon icon={faFileInvoiceDollar} className='mr-2' />
+              Total Expenses of the Month
+            </h2>
+            <p className='text-4xl font-extrabold text-gray-700 p-6'>
+              ${calculateTotalExpenses()}
+            </p>
+          </div>
+
+          {/* Remaining Budget Box */}
+          <div className='neumorphicBox p-8 rounded shadow'>
+            <h2 className='text-2xl text-blue-400 font-bold my-5 flex'>
+              <FontAwesomeIcon icon={faMoneyBillWave} className='mr-2' />
+              Remaining Budget this Month
+            </h2>
+            <p className='text-4xl font-extrabold text-gray-700 p-6'>
+              ${calculateRemainingBudget().toFixed(2)}
+            </p>
+          </div>
+          {/* Budget and Expenses Line Graph */}
+          <div className='col-span-2 neumorphicBox p-8 rounded shadow'>
+            <h2 className='text-2xl text-blue-400 font-bold mb-2 flex items-center space-x- my-5'>
+              <FontAwesomeIcon icon={faChartLine} className='mr-2' />
+              <span>Budget vs Expenses</span>
+            </h2>
+            <Line data={budgetData} />
+          </div>
         </div>
       </div>
     </div>
