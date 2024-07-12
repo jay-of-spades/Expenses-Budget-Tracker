@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 :root {
+  --blue: #51baff;
+  --light-shadow: #76bcec;
+  --dark-shadow: #3e2904;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -168,6 +172,47 @@ main {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
+}
+
+/* Home.jsx */
+.wrapper {
+  display: grid;
+  grid-template-areas: 'overlap';
+  place-content: center;
+  text-transform: uppercase;
+}
+.wrapper > div {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #363833;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  /* font-size: clamp(3em, 18vw, 15rem); */
+  grid-area: overlap;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 4px transparent;
+}
+div.bg {
+  background-image: repeating-linear-gradient(
+    105deg,
+    var(--blue) 0%,
+    var(--dark-shadow) 5%,
+    var(--blue) 12%
+  );
+  color: transparent;
+  /* filter: drop-shadow(1px 15px 32px black); */
+  transform: scaleY(1.05);
+  transform-origin: top;
+}
+div.fg {
+  background-image: repeating-linear-gradient(
+    5deg,
+    var(--blue) 0%,
+    var(--light-shadow) 23%,
+    var(--blue) 31%
+  );
+  color: #1e2127;
+  transform: scale(1);
 }
 /* 
 .expense-form label,
