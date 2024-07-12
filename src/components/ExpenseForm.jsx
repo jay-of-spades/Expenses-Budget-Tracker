@@ -74,7 +74,7 @@ const ExpenseForm = ({
           </select>
           <button
             type='button'
-            className='p-2 bg-blue-600 text-white rounded ml-2'
+            className='p-2 bg-blue-600 text-white rounded ml-2 hover:bg-green-300 hover:text-gray-700 transition-colors duration-300 ease-in'
             onClick={() => navigate('/settings')}
           >
             Edit Categories
@@ -98,7 +98,10 @@ const ExpenseForm = ({
             onChange={e => setNotes(e.target.value)}
           />
         </div>
-        <button className='p-3 w-5/12 bg-blue-600 mb-7' type='submit'>
+        <button
+          className='p-3 w-5/12 bg-blue-600 mb-7 hover:bg-pink-800 transition-all duration-300 ease-in'
+          type='submit'
+        >
           {expenseToEdit !== null ? 'Edit Expense' : 'Add Expense'}
         </button>
       </form>

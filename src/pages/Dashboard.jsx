@@ -149,7 +149,7 @@ const Dashboard = () => {
               ) : (
                 <div className='text-gray-500 text-center flex justify-center items-center w-full h-24'>
                   <button
-                    className='bg-transparent font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-3xl cursor-pointer border-rose-700 hover:bg-rose-200 transition-all duration-700 ease-in'
+                    className='bg-transparent font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-3xl cursor-pointer border-rose-700 hover:bg-rose-200 transition-all duration-500 ease-in'
                     onClick={() => setShowIncomePopup(true)}
                   >
                     <FontAwesomeIcon icon={faEdit} className='mr-2' />
@@ -224,7 +224,7 @@ const Dashboard = () => {
               Recent Transactions
             </h2>
             {getRecentTransactions().length === 0 ? (
-              <p>No Transactions.</p>
+              <p className='text-gray-500 text-lg'>No Transactions.</p>
             ) : (
               <ul>
                 {getRecentTransactions().map((expense, index) => (
