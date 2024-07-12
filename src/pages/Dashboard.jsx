@@ -130,7 +130,7 @@ const Dashboard = () => {
         </h1>
         <div className='grid grid-cols gap-8'>
           <div className='neumorphicBox p-8 rounded shadow'>
-            <h2 className='text-2xl text-blue-400 font-bold mb-2 flex items-center space-x-2 my-5'>
+            <h2 className='text-2xl text-blue-400 font-bold  flex items-center space-x-2 my-5'>
               <FontAwesomeIcon icon={faDollarSign} />
               <span>Income</span>
             </h2>
@@ -148,20 +148,21 @@ const Dashboard = () => {
                 />
               ) : (
                 <div className='text-gray-500 text-center flex justify-center items-center w-full h-24'>
-                  <h2
-                    className='font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-md cursor-pointer bg-slate-100'
+                  <button
+                    className='bg-transparent font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-3xl cursor-pointer border-rose-700 hover:bg-rose-200 transition-all duration-700 ease-in'
                     onClick={() => setShowIncomePopup(true)}
                   >
-                    Please set both current and target income
-                  </h2>
+                    <FontAwesomeIcon icon={faEdit} className='mr-2' />
+                    Set income
+                  </button>
                 </div>
               )}
-              <button
+              {/* <button
                 onClick={() => setShowIncomePopup(true)}
                 className='absolute top-0 right-0 p-2 bg-blue-600 text-white rounded'
               >
                 <FontAwesomeIcon icon={faEdit} />
-              </button>
+              </button> */}
             </div>
           </div>
           {/* Income Popup */}
