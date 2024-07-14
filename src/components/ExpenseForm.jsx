@@ -44,13 +44,13 @@ const ExpenseForm = ({
   return (
     <div className='flex justify-center items-center w-full'>
       <form
-        className='flex flex-col gap-3 mb-5 neumorphicBox1 w-2/3 p-10'
+        className='flex flex-col gap-3 mb-5 w-2/3 p-10 shadow-inner shadow-black'
         onSubmit={handleSubmit}
       >
         <div className='flex gap-3'>
-          <label className='block w-full text-gray-700'>Amount:</label>
+          <label className='block w-full text-gray-50'>Amount:</label>
           <input
-            className='block w-full p-3 bg-gray-300 text-gray-800 rounded-sm'
+            className='block w-full p-4 rounded shadow bg-gray-500 text-gray-50'
             type='number'
             value={amount}
             onChange={e => setAmount(e.target.value)}
@@ -58,9 +58,9 @@ const ExpenseForm = ({
           />
         </div>
         <div className='flex gap-3'>
-          <label className='block w-full text-gray-700'>Category:</label>
+          <label className='block w-full text-gray-50'>Category:</label>
           <select
-            className='block w-full p-3 bg-gray-300 text-gray-800 rounded-sm'
+            className='block w-full p-4 rounded shadow bg-gray-500 text-gray-50'
             value={category}
             onChange={e => setCategory(e.target.value)}
             required
@@ -81,9 +81,9 @@ const ExpenseForm = ({
           </button>
         </div>
         <div className='flex gap-3'>
-          <label className='block w-full text-gray-700'>Date:</label>
+          <label className='block w-full text-gray-50'>Date:</label>
           <input
-            className='block w-full p-3 bg-gray-300 text-gray-800 rounded-sm'
+            className='block w-full p-4 rounded shadow bg-gray-500 text-gray-50'
             type='date'
             value={date}
             onChange={e => setDate(e.target.value)}
@@ -91,9 +91,9 @@ const ExpenseForm = ({
           />
         </div>
         <div className='flex gap-3'>
-          <label className='block w-full text-gray-700'>Notes:</label>
+          <label className='block w-full text-gray-50'>Notes:</label>
           <textarea
-            className='block w-full p-3 bg-gray-300 text-gray-800 rounded-sm mb-5'
+            className='block w-full p-4 rounded shadow bg-gray-500 text-gray-50 mb-5'
             value={notes}
             onChange={e => setNotes(e.target.value)}
           />

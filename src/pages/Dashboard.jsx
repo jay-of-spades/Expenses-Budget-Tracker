@@ -129,7 +129,7 @@ const Dashboard = () => {
           Dashboard
         </h1>
         <div className='grid grid-cols gap-8'>
-          <div className='neumorphicBox p-8 rounded shadow'>
+          <div className='p-8 rounded shadow-inner shadow-black'>
             <h2 className='text-2xl text-blue-400 font-bold  flex items-center space-x-2 my-5'>
               <FontAwesomeIcon icon={faDollarSign} />
               <span>Income</span>
@@ -147,7 +147,7 @@ const Dashboard = () => {
                   })}
                 />
               ) : (
-                <div className='text-gray-500 text-center flex justify-center items-center w-full h-24'>
+                <div className='text-gray-50 text-center flex justify-center items-center w-full h-24'>
                   <button
                     className='bg-transparent font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-3xl cursor-pointer border-rose-700 hover:bg-rose-200 transition-all duration-500 ease-in'
                     onClick={() => setShowIncomePopup(true)}
@@ -167,8 +167,8 @@ const Dashboard = () => {
           </div>
           {/* Income Popup */}
           {showIncomePopup && (
-            <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-5'>
-              <div className='neumorphicBox p-8 rounded shadow'>
+            <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
+              <div className='p-8 rounded shadow-inner shadow-black bg-gray-50'>
                 <h2 className='text-2xl text-blue-400 font-bold mb-4'>
                   Set Income
                 </h2>
@@ -218,19 +218,19 @@ const Dashboard = () => {
           )}
 
           {/* {Recent Transactions} */}
-          <div className='neumorphicBox p-8 rounded shadow'>
+          <div className='p-8 rounded shadow-inner shadow-black'>
             <h2 className='text-2xl text-blue-400 font-bold mb- my-5 flex'>
               <FontAwesomeIcon icon={faCommentsDollar} className='mr-2' />
               Recent Transactions
             </h2>
             {getRecentTransactions().length === 0 ? (
-              <p className='text-gray-500 text-lg'>No Transactions.</p>
+              <p className='text-gray-50 text-lg'>No Transactions.</p>
             ) : (
               <ul>
                 {getRecentTransactions().map((expense, index) => (
                   <li
                     key={index}
-                    className='p-2 border-b border-gray-400 pb-4 flex justify-between text-gray-700'
+                    className='p-2 border-b border-gray-50 pb-4 flex justify-between text-gray-50'
                   >
                     <span>{expense.date}</span>
                     <span>{expense.category}</span>
@@ -243,28 +243,28 @@ const Dashboard = () => {
           </div>
 
           {/* {Total Expenses Box} */}
-          <div className='neumorphicBox p-8 rounded shadow'>
+          <div className='p-8 rounded shadow-inner shadow-black'>
             <h2 className='text-2xl text-blue-400 font-bold my-5 flex'>
               <FontAwesomeIcon icon={faFileInvoiceDollar} className='mr-2' />
               Total Expenses of the Month
             </h2>
-            <p className='text-4xl font-extrabold text-gray-700 p-6'>
+            <p className='text-4xl font-extrabold text-gray-50 p-6'>
               ${calculateTotalExpenses()}
             </p>
           </div>
 
           {/* Remaining Budget Box */}
-          <div className='neumorphicBox p-8 rounded shadow'>
+          <div className='p-8 rounded shadow-inner shadow-black'>
             <h2 className='text-2xl text-blue-400 font-bold my-5 flex'>
               <FontAwesomeIcon icon={faMoneyBillWave} className='mr-2' />
               Remaining Budget this Month
             </h2>
-            <p className='text-4xl font-extrabold text-gray-700 p-6'>
+            <p className='text-4xl font-extrabold text-gray-50 p-6'>
               ${calculateRemainingBudget().toFixed(2)}
             </p>
           </div>
           {/* Budget and Expenses Line Graph */}
-          <div className='col-span-2 neumorphicBox p-8 rounded shadow'>
+          <div className='col-span-2 p-8 rounded shadow-inner shadow-black'>
             <h2 className='text-2xl text-blue-400 font-bold mb-2 flex items-center space-x- my-5'>
               <FontAwesomeIcon icon={faChartLine} className='mr-2' />
               <span>Budget vs Expenses</span>

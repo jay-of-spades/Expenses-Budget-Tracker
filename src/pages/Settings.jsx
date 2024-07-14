@@ -121,7 +121,7 @@ const Settings = () => {
     return (
       <div>
         <div className='my-8 flex justify-between items-center'>
-          <label className='text-gray-700'>Select Currency:</label>
+          <label className='text-gray-50'>Select Currency:</label>
           <select
             value={currency}
             onChange={e => setCurrency(e.target.value)}
@@ -149,7 +149,7 @@ const Settings = () => {
     return (
       <div>
         <div className='my-8 flex justify-between items-center'>
-          <label className='text-gray-700'>Select Language:</label>
+          <label className='text-gray-50'>Select Language:</label>
           <select
             value={language}
             onChange={e => setLanguage(e.target.value)}
@@ -181,7 +181,7 @@ const Settings = () => {
       <div>
         <form onSubmit={saveAccountInformation}>
           <div className='my-5 flex justify-between items-center'>
-            <label className='text-gray-700'>Credit Card:</label>
+            <label className='text-gray-50'>Credit Card:</label>
             <input
               type='text'
               value={accounts.creditCard}
@@ -192,7 +192,7 @@ const Settings = () => {
             />
           </div>
           <div className='my-5 flex justify-between items-center'>
-            <label className='text-gray-700'>Credit Limit:</label>
+            <label className='text-gray-50'>Credit Limit:</label>
             <input
               type='number'
               value={accounts.creditLimit}
@@ -203,7 +203,7 @@ const Settings = () => {
             />
           </div>
           <div className='my-5 flex justify-between items-center'>
-            <label className='text-gray-700'>Savings:</label>
+            <label className='text-gray-50'>Savings:</label>
             <input
               type='number'
               value={accounts.savings}
@@ -214,7 +214,7 @@ const Settings = () => {
             />
           </div>
           <div className='my-5 flex justify-between items-center'>
-            <label className='text-gray-700'>Investment Account:</label>
+            <label className='text-gray-50'>Investment Account:</label>
             <input
               type='text'
               value={accounts.investment}
@@ -238,10 +238,10 @@ const Settings = () => {
   function renderCategoriesSettings() {
     return (
       <div className='w-full'>
-        <div className='divide-y divide-gray-500'>
+        <div className='divide-y divide-gray-50'>
           {categories.map((category, index) => (
             <div key={index} className='flex justify-between w-full p-4'>
-              <span className='text-gray-700 block'>{category}</span>
+              <span className='text-gray-50 block'>{category}</span>
               <div className='flex justify-between w-2/6'>
                 <button
                   onClick={() => editCategory(index)}
@@ -266,7 +266,7 @@ const Settings = () => {
             Add New Category
           </h3>
           <div className='flex justify-between items-center my-4'>
-            <label className='text-gray-700'>New Category:</label>
+            <label className='text-gray-50'>New Category:</label>
             <input
               type='text'
               value={newCategory}
@@ -291,19 +291,19 @@ const Settings = () => {
         <div className='col-span-2'>
           <form onSubmit={saveUserProfile} className='p-8 rounded-md'>
             <div className='flex justify-between items-center my-4'>
-              <label className='flex items-center text-gray-700'>
+              <label className='flex items-center text-gray-50'>
                 <FontAwesomeIcon icon={faImage} className='mr-2' />
                 Profile Picture:
               </label>
               <input
                 type='file'
                 onChange={handleProfilePictureUpload}
-                className='text-gray-700 p-2 cursor-pointer'
+                className='text-gray-50 p-2 cursor-pointer'
               />
             </div>
 
             <div className='flex justify-between items-center my-4'>
-              <label className='flex items-center text-gray-700'>
+              <label className='flex items-center text-gray-50'>
                 <FontAwesomeIcon icon={faUser} className='mr-2' />
                 First Name:
               </label>
@@ -318,7 +318,7 @@ const Settings = () => {
               />
             </div>
             <div className='flex justify-between items-center my-4'>
-              <label className='flex items-center text-gray-700'>
+              <label className='flex items-center text-gray-50'>
                 <FontAwesomeIcon icon={faUserAlt} className='mr-2' />
                 Last Name:
               </label>
@@ -333,7 +333,7 @@ const Settings = () => {
               />
             </div>
             <div className='flex justify-between items-center my-4'>
-              <label className='flex items-center text-gray-700'>
+              <label className='flex items-center text-gray-50'>
                 <FontAwesomeIcon icon={faCalendarAlt} className='mr-2' />
                 Date of Birth:
               </label>
@@ -346,7 +346,7 @@ const Settings = () => {
               />
             </div>
             <div className='flex justify-between items-center my-4'>
-              <label className='flex items-center text-gray-700'>
+              <label className='flex items-center text-gray-50'>
                 <FontAwesomeIcon icon={faMobileAlt} className='mr-2' />
                 Phone Number:
               </label>
@@ -361,7 +361,7 @@ const Settings = () => {
               />
             </div>
             <div className='flex justify-between items-center my-4'>
-              <label className='flex items-center text-gray-700'>
+              <label className='flex items-center text-gray-50'>
                 <FontAwesomeIcon icon={faEnvelope} className='mr-2' />
                 Email:
               </label>
@@ -376,7 +376,7 @@ const Settings = () => {
               />
             </div>
             <div className='flex justify-between items-center my-4'>
-              <label className='flex items-cente text-gray-700'>
+              <label className='flex items-cente text-gray-50'>
                 <FontAwesomeIcon icon={faPenAlt} className='mr-2' />
                 Brief Description:
               </label>
@@ -405,7 +405,7 @@ const Settings = () => {
       <div className='grid grid-cols-3 gap-4'>
         <div className='col-span-2'>
           <form onSubmit={handlePasswordChange} className='p-8 rounded-md'>
-            <label className='flex items-center text-gray-700 mt-10'>
+            <label className='flex items-center text-gray-50 mt-10'>
               <FontAwesomeIcon icon={faKey} className='mr-2' />
               New Password:
             </label>
@@ -419,7 +419,7 @@ const Settings = () => {
               className='p-4 rounded shadow bg-gray-500 w-full'
             />
 
-            <label className='flex items-center text-gray-700 mt-10'>
+            <label className='flex items-center text-gray-50 mt-10'>
               <FontAwesomeIcon icon={faKey} className='mr-2' />
               Confirm Password:
             </label>
@@ -445,21 +445,21 @@ const Settings = () => {
   }
   return (
     <div className='grid grid-cols-3 gap-4 '>
-      <div className='neumorphicBox p-10 rounded shadow hover:bg-blue-100 transition-colors duration-300 ease-in-out'>
+      <div className='p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faDollarSign} className='mr-2' />
           Currency
         </h2>
         {renderCurrencySettings()}
       </div>
-      <div className='neumorphicBox p-10 rounded shadow col-span-2 hover:bg-blue-100 transition-colors duration-300 ease-in-out'>
+      <div className='col-span-2 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-6 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faTags} className='mr-2' />
           Categories
         </h2>
         {renderCategoriesSettings()}
       </div>
-      <div className='neumorphicBox p-10 rounded shadow col-span-1 flex flex-col hover:bg-blue-100 transition-colors duration-300 ease-in-out'>
+      <div className='col-span-1 flex flex-col p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faLanguage} className='mr-2' />
           Language
@@ -468,7 +468,7 @@ const Settings = () => {
         {renderLanguageSettings()}
       </div>
 
-      <div className='neumorphicBox p-10 rounded shadow col-span-2 hover:bg-blue-100 transition-colors duration-300 ease-in-out'>
+      <div className='col-span-2 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400 '>
           <FontAwesomeIcon icon={faCreditCard} className='mr-2' />
           Accounts
@@ -476,14 +476,14 @@ const Settings = () => {
         {renderAccountInformationSettings()}
       </div>
 
-      <div className='neumorphicBox p-10 rounded shadow col-span-3 hover:bg-blue-100 transition-colors duration-300 ease-in-out'>
+      <div className='col-span-3 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faUser} className='mr-2' />
           Profile
         </h2>
         {renderUserProfileSettings()}
       </div>
-      <div className='neumorphicBox p-10 rounded shadow col-span-3 hover:bg-blue-100 transition-colors duration-300 ease-in-out'>
+      <div className='col-span-3 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faLockOpen} className='mr-2' />
           Password Reset
