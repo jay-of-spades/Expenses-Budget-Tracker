@@ -240,9 +240,9 @@ const Settings = () => {
       <div className='w-full'>
         <div className='divide-y divide-gray-50'>
           {categories.map((category, index) => (
-            <div key={index} className='flex justify-between w-full p-4'>
+            <div key={index} className='flex justify-between  w-full p-4'>
               <span className='text-gray-50 block'>{category}</span>
-              <div className='flex justify-between w-2/6'>
+              <div className='flex gap-2 md:gap-1 justify-between md:mr-4 w-2/6'>
                 <button
                   onClick={() => editCategory(index)}
                   className='bg-gray-400 hover:bg-green-300 hover:text-gray-700 transition-colors duration-300 ease-in-out'
@@ -266,7 +266,7 @@ const Settings = () => {
             Add New Category
           </h3>
           <div className='flex justify-between items-center my-4'>
-            <label className='text-gray-50'>New Category:</label>
+            <label className='text-gray-50 md:mr-4'>New Category:</label>
             <input
               type='text'
               value={newCategory}
@@ -287,8 +287,8 @@ const Settings = () => {
 
   function renderUserProfileSettings() {
     return (
-      <div className='grid grid-cols-3 gap-4'>
-        <div className='col-span-2'>
+      <div className='md:grid md:grid-cols-3 md:gap-4'>
+        <div className='md:col-span-3 lg:col-span-2'>
           <form onSubmit={saveUserProfile} className='p-8 rounded-md'>
             <div className='flex justify-between items-center my-4'>
               <label className='flex items-center text-gray-50'>
@@ -444,22 +444,22 @@ const Settings = () => {
     );
   }
   return (
-    <div className='grid grid-cols-3 gap-4 '>
-      <div className='p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
+    <div className='w-full lg:grid lg:grid-cols-3 gap-4 '>
+      <div className='mb-4 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faDollarSign} className='mr-2' />
           Currency
         </h2>
         {renderCurrencySettings()}
       </div>
-      <div className='col-span-2 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
+      <div className='mb-4 md:col-span-2 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-6 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faTags} className='mr-2' />
           Categories
         </h2>
         {renderCategoriesSettings()}
       </div>
-      <div className='col-span-1 flex flex-col p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
+      <div className='mb-4 md:col-span-1 flex flex-col p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faLanguage} className='mr-2' />
           Language
@@ -468,7 +468,7 @@ const Settings = () => {
         {renderLanguageSettings()}
       </div>
 
-      <div className='col-span-2 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
+      <div className='mb-4 col-span-2 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400 '>
           <FontAwesomeIcon icon={faCreditCard} className='mr-2' />
           Accounts
@@ -476,14 +476,14 @@ const Settings = () => {
         {renderAccountInformationSettings()}
       </div>
 
-      <div className='col-span-3 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
+      <div className='mb-4 col-span-3 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faUser} className='mr-2' />
           Profile
         </h2>
         {renderUserProfileSettings()}
       </div>
-      <div className='col-span-3 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
+      <div className='mb-4 col-span-3 p-10 bg-gray-800 shadow-inner shadow-black hover:bg-gray-800 hover:shadow hover:shadow-gray-400 transition-colors duration-300 ease-in-out'>
         <h2 className='text-3xl font-bold mb-2 flex items-center text-blue-400'>
           <FontAwesomeIcon icon={faLockOpen} className='mr-2' />
           Password Reset

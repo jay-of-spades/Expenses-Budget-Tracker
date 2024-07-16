@@ -13,8 +13,13 @@ import {
   faFileInvoiceDollar,
   faMoneyBillWave,
 } from '@fortawesome/free-solid-svg-icons';
+import { useInView } from 'react-intersection-observer';
 
 const Dashboard = () => {
+  const { ref: setIncomeRef, inView: setIncomeInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const [expenses, setExpenses] = useState([]);
   const [incomes, setIncomes] = useState([]);
   const [budgets, setBudgets] = useState([]);
@@ -129,40 +134,47 @@ const Dashboard = () => {
           Dashboard
         </h1>
         <div className='grid grid-cols gap-8'>
-          <div className='p-8 rounded shadow-inner shadow-black'>
-            <h2 className='text-2xl text-blue-400 font-bold  flex items-center space-x-2 my-5'>
-              <FontAwesomeIcon icon={faDollarSign} />
-              <span>Income</span>
-            </h2>
-            <div className='relative'>
-              {incomePercentage !== null ? (
-                <CircularProgressbar
-                  value={incomePercentage}
-                  text={`${incomePercentage.toFixed(2)}%`}
-                  styles={buildStyles({
-                    pathColor: '#4caf50',
-                    trailColor: '#d6d6d6',
-                    textColor: '#4caf50',
-                    strokeWidth: 5,
-                  })}
-                />
-              ) : (
-                <div className='text-gray-50 text-center flex justify-center items-center w-full h-24'>
-                  <button
-                    className='bg-transparent font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-3xl cursor-pointer border-rose-700 hover:bg-rose-200 transition-all duration-500 ease-in'
-                    onClick={() => setShowIncomePopup(true)}
-                  >
-                    <FontAwesomeIcon icon={faEdit} className='mr-2' />
-                    Set income
-                  </button>
-                </div>
-              )}
-              {/* <button
+          <div
+            ref={setIncomeRef}
+            className={`transition opacity ${
+              setIncomeInView ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <div className='p-8 rounded shadow-inner shadow-black'>
+              <h2 className='text-2xl text-blue-400 font-bold  flex items-center space-x-2 my-5'>
+                <FontAwesomeIcon icon={faDollarSign} />
+                <span>Income</span>
+              </h2>
+              <div className='relative'>
+                {incomePercentage !== null ? (
+                  <CircularProgressbar
+                    value={incomePercentage}
+                    text={`${incomePercentage.toFixed(2)}%`}
+                    styles={buildStyles({
+                      pathColor: '#4caf50',
+                      trailColor: '#d6d6d6',
+                      textColor: '#4caf50',
+                      strokeWidth: 5,
+                    })}
+                  />
+                ) : (
+                  <div className='text-gray-50 text-center flex justify-center items-center w-full h-24'>
+                    <button
+                      className='bg-transparent font-bold text-lg my-8 w-3/4 text-red-700 border p-6 rounded-3xl cursor-pointer border-rose-700 hover:bg-rose-200 transition-all duration-500 ease-in'
+                      onClick={() => setShowIncomePopup(true)}
+                    >
+                      <FontAwesomeIcon icon={faEdit} className='mr-2' />
+                      Set income
+                    </button>
+                  </div>
+                )}
+                {/* <button
                 onClick={() => setShowIncomePopup(true)}
                 className='absolute top-0 right-0 p-2 bg-blue-600 text-white rounded'
               >
                 <FontAwesomeIcon icon={faEdit} />
               </button> */}
+              </div>
             </div>
           </div>
           {/* Income Popup */}

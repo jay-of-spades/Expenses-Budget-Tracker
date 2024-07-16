@@ -44,7 +44,7 @@ const ExpenseForm = ({
   return (
     <div className='flex justify-center items-center w-full'>
       <form
-        className='flex flex-col gap-3 mb-5 w-2/3 p-10 shadow-inner shadow-black'
+        className='flex flex-col gap-3 mb-5 w-10/12 md:w-11/12 lg:w-2/3 p-10 shadow-inner shadow-black hover:shadow-md hover:shadow-gray-50 transition-all duration-300 ease-in'
         onSubmit={handleSubmit}
       >
         <div className='flex gap-3'>

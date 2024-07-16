@@ -145,16 +145,16 @@ main {
   position: fixed;
   z-index: 1000;
 }
+
 .fixedHeader {
-  top: 0;
+  bottom: 0;
   left: 0;
 }
 
 .fixedSidebar {
-  top: 200px;
-  left: 0;
+  bottom: 0;
+  left: 6rem;
 }
-
 .neumorphicBox {
   border-radius: 50px;
   background: #e0e0e0;
@@ -298,5 +298,17 @@ div.fg {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (min-width: 768px) {
+  .fixedHeader {
+    top: 0;
+    left: 0;
+  }
+
+  .fixedSidebar {
+    top: 200px;
+    left: 0;
   }
 }
