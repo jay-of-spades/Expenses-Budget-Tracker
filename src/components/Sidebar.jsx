@@ -20,7 +20,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/home'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faHome} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faHome}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>Home</span>
               </div>
             </Link>
@@ -31,7 +34,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/dashboard'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faTachometerAlt} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faTachometerAlt}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>Dashboard</span>
               </div>
             </Link>
@@ -42,7 +48,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/expenses'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faShoppingCart} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faShoppingCart}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>Expenses</span>
               </div>
             </Link>
@@ -53,7 +62,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/budget'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faWallet} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faWallet}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>Budget</span>
               </div>
             </Link>
@@ -64,7 +76,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/search'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faSearch} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>Search</span>
               </div>
             </Link>
@@ -79,7 +94,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/settings'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faCog} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faCog}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>Settings</span>
               </div>
             </Link>
@@ -90,7 +108,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/help'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faQuestionCircle} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faQuestionCircle}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>Help</span>
               </div>
             </Link>
@@ -101,7 +122,10 @@ const Sidebar = () => {
           <li className='relative group'>
             <Link className='text-blue-400 hover:text-gray-100' to='/login'>
               <div className='md:flex'>
-                <FontAwesomeIcon icon={faSignOutAlt} className='mr-2' />
+                <FontAwesomeIcon
+                  icon={faSignOutAlt}
+                  className='mt-0 mr-2 md:mt-1 md:mr-6'
+                />
                 <span className='hidden md:block md:font-bold'>
                   {isLoggedIn ? 'Log Out' : 'Log In'}
                 </span>
