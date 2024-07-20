@@ -133,7 +133,7 @@ const Dashboard = () => {
           <FontAwesomeIcon icon={faTachometerAlt} className='mr-2' />
           Dashboard
         </h1>
-        <div className='grid grid-cols gap-8'>
+        <div className='lg:grid lg:grid-cols space-y-4 gap-8'>
           <div
             ref={setIncomeRef}
             className={`transition opacity ${
@@ -276,13 +276,14 @@ const Dashboard = () => {
             </p>
           </div>
           {/* Budget and Expenses Line Graph */}
-          <div className='col-span-2 p-8 rounded shadow-inner shadow-black'>
+          <div className='col-span-2 p-8 rounded shadow-inner shadow-black mb-28'>
             <h2 className='text-2xl text-blue-400 font-bold mb-2 flex items-center space-x- my-5'>
               <FontAwesomeIcon icon={faChartLine} className='mr-2' />
               <span>Budget vs Expenses</span>
             </h2>
             <Line data={budgetData} />
           </div>
+          <div className='h-28 md:hidden'></div>
         </div>
       </div>
     </div>

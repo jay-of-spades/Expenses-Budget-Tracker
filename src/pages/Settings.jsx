@@ -490,6 +490,7 @@ const Settings = () => {
         </h2>
         {renderPasswordReset()}
       </div>
+      <div className='h-28 md:hidden'></div>
     </div>
   );
 };

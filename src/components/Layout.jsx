@@ -4,8 +4,8 @@ import Sidebar from './Sidebar';
 
 const Layout = ({ children }) => {
   return (
-    <div className='flex flex-col min-h-screen'>
-      <div className='flex flex-1 bg-gray-800'>
+    <div className='min-h-screen flex flex-col justify-center items-center'>
+      <div className='w-full md:w-full flex flex-1 bg-gray-800'>
         <div className='md:w-80'>
           <Header />
           <Sidebar />
