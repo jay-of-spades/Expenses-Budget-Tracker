@@ -23,6 +23,14 @@ const Home = () => {
       <h3 className='text-4xl font-bold mb-4 text-gray-50'>Updates</h3>
       <ul className='list-disc list-inside text-gray-50'>
         <li className='mb-8'>
+          <span className='font-bold'>July 20, 2024: Style Overhaul</span>
+          <ul className='list-decimal list-inside ml-4'>
+            <li>Changed look and feel of app</li>
+            <li>Made Menu, Dashboard, and Settings responsive</li>
+          </ul>
+        </li>
+
+        <li className='mb-8'>
           <span className='font-bold'>July 11, 2024: Settings & Styling</span>
           <ul className='list-decimal list-inside ml-4'>
             <li>Implemented new styling, & added logo.</li>
