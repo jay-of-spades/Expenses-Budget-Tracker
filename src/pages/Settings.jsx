@@ -43,6 +43,7 @@ const Settings = () => {
 
   const [newCategory, setNewCategory] = useState('');
   const [categoryToEdit, setCategoryToEdit] = useState('null');
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
 
   useEffect(() => {
     const savedCurrency = localStorage.getItem('currency');
@@ -117,6 +118,9 @@ const Settings = () => {
     localStorage.setItem('profile', JSON.stringify(profile));
   };
 
+  const handleEditProfile = () => {
+    setIsEditingProfile(true);
+  };
   function renderCurrencySettings() {
     return (
       <div>
@@ -289,7 +293,11 @@ const Settings = () => {
     return (
       <div className='md:grid md:grid-cols-3 md:gap-4'>
         <div className='md:col-span-3 lg:col-span-2'>
-          <form onSubmit={saveUserProfile} className='p-8 rounded-md'>
+          <form
+            onSubmit={saveUserProfile}
+            className='p-8 rounded-md'
+            style={{ display: isEditingProfile ? 'block' : 'none' }}
+          >
             <div className='flex justify-between items-center my-4'>
               <label className='flex items-center text-gray-50'>
                 <FontAwesomeIcon icon={faImage} className='mr-2' />
@@ -395,6 +403,75 @@ const Settings = () => {
               Save
             </button>
           </form>
+          <div
+            style={{ display: isEditingProfile ? 'none' : 'block' }}
+            className='p-8'
+          >
+            <div className='flex justify-between items-center my-4'>
+              <label className='flex items-center text-gray-50'>
+                <FontAwesomeIcon icon={faUser} className='mr-2' />
+                First Name:
+              </label>
+              <p className='p-4 rounded shadow bg-gray-500 w-1/2'>
+                {profile.firstName}
+              </p>
+            </div>
+
+            <div className='flex justify-between items-center my-4'>
+              <label className='flex items-center text-gray-50'>
+                <FontAwesomeIcon icon={faUserAlt} className='mr-2' />
+                Last Name:
+              </label>
+              <p className='p-4 rounded shadow bg-gray-500 w-1/2'>
+                {profile.lastName}
+              </p>
+            </div>
+
+            <div className='flex justify-between items-center my-4'>
+              <label className='flex items-center text-gray-50'>
+                <FontAwesomeIcon icon={faCalendarAlt} className='mr-2' />
+                Date of Birth:
+              </label>
+              <p className='p-4 rounded shadow bg-gray-500 w-1/2'>
+                {profile.dob}
+              </p>
+            </div>
+
+            <div className='flex justify-between items-center my-4'>
+              <label className='flex items-center text-gray-50'>
+                <FontAwesomeIcon icon={faMobileAlt} className='mr-2' />
+                Phone Number:
+              </label>
+              <p className='p-4 rounded shadow bg-gray-500 w-1/2'>
+                {profile.phone}
+              </p>
+            </div>
+            <div className='flex justify-between items-center my-4'>
+              <label className='flex items-center text-gray-50'>
+                <FontAwesomeIcon icon={faEnvelope} className='mr-2' />
+                Email:
+              </label>
+              <p className='p-4 rounded shadow bg-gray-500 w-1/2'>
+                {profile.email}
+              </p>
+            </div>
+
+            <div className='flex justify-between items-center my-4'>
+              <label className='flex items-center text-gray-50'>
+                <FontAwesomeIcon icon={faPenAlt} className='mr-2' />
+                Brief Description:
+              </label>
+              <p className='p-4 rounded shadow bg-gray-500 w-1/2'>
+                {profile.description}
+              </p>
+            </div>
+            <button
+              onClick={handleEditProfile}
+              className='bg-gray-500 hover:bg-blue-300 hover:text-gray-700 transition-colors duration-300 ease-in-out w-4/5 m-5 p-4'
+            >
+              Edit
+            </button>
+          </div>
         </div>
       </div>
     );
